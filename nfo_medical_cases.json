@@ -1,5 +1,248 @@
 [
   {
+    "id": 3,
+    "timestamp": "2026-06-14T21:19:21.856756",
+    "patient": {
+      "name": "John Smith",
+      "age": "58",
+      "gender": "Male"
+    },
+    "symptoms": "Crushing central chest pain started 45 minutes ago. Pain radiates to left arm and jaw. Associated sweating, nausea and shortness of breath.",
+    "medical_history": "Hypertension\nSmoker (30 years)\nHigh cholesterol\nFather died of heart attack at 62",
+    "vitals": {
+      "bp": "168/102",
+      "hr": "112",
+      "temp": "98.6\u00b0F",
+      "o2": "95"
+    },
+    "confidence_level": "HIGH",
+    "analysis": "Chief complaint: Crushing central chest pain\n\nOnset / duration: 45 minutes ago\n\nSeverity: Not documented\n\nAssociated symptoms: \n- Sweating\n- Nausea\n- Shortness of breath\n- Pain radiates to left arm and jaw\n\nRelevant medical history: \n- Hypertension\n- Smoker (30 years)\n- High cholesterol\n- Father died of heart attack at 62\n\nCurrent medications: Not documented\n\nRisk factors: \n- Smoker (30 years)\n- High cholesterol\n- Family history of heart attack (father died of heart attack at 62)",
+    "soap": "S (Subjective): \nThe patient reports crushing central chest pain with an onset of 45 minutes ago. Associated symptoms include sweating, nausea, shortness of breath, and pain radiating to the left arm and jaw.\n\nO (Objective):\nVital signs: BP: 168/102 | HR: 112 | Temp: 98.6\u00b0F | O2 Sat: 95\nPhysical exam: Not performed / not documented\nLabs / imaging: Not available\n\nA (Assessment): \n1. Acute Myocardial Infarction (AMI) (60%)\n2. Angina Pectoris (20%)\n3. Pulmonary Embolism (10%)\n4. Insufficient Information (10%)\n\nP (Plan):\n[PHYSICIAN TO COMPLETE]",
+    "treatment": "**IMMEDIATE ACTIONS:**\n\n1. Activate emergency response system immediately to alert medical team and emergency services.\n2. Triage patient to prioritize care and ensure timely intervention.\n3. Establish a secure airway and maintain oxygenation.\n4. Initiate continuous cardiac and oxygen monitoring.\n5. Establish IV access for potential medication administration and fluid management.\n6. Ensure patient is in a comfortable position to reduce discomfort and anxiety.\n\n**RECOMMENDED INVESTIGATIONS:**\n\n1. 12-lead ECG to assess cardiac rhythm and identify signs of ischemia or infarction.\n2. Troponin levels to confirm myocardial infarction diagnosis.\n3. Complete Blood Count (CBC) to assess for signs of infection or inflammation.\n4. Electrolyte panel to evaluate for potential imbalances.\n5. Chest X-ray to assess for signs of pulmonary edema or other complications.\n6. Consider additional imaging studies (e.g., echocardiogram, cardiac catheterization) based on patient's clinical presentation and ECG findings.\n\n**SPECIALIST REFERRAL:**\n\n1. Cardiology for further evaluation and management of acute myocardial infarction.\n2. Consider referral to a cardiothoracic surgeon if percutaneous coronary intervention (PCI) or coronary artery bypass grafting (CABG) is required.\n\n**MONITORING PARAMETERS:**\n\n1. Cardiac rhythm and rate.\n2. Oxygen saturation.\n3. Blood pressure.\n4. Electrolyte levels.\n5. Troponin levels.\n6. Cardiac enzymes (e.g., CK-MB, myoglobin).\n7. Renal function (e.g., creatinine, urine output).\n8. Respiratory status (e.g., oxygenation, ventilation).\n\n**SAFETY NOTES:**\n\n1. Be cautious of potential complications, such as cardiac arrest, arrhythmias, or cardiac tamponade.\n2. Monitor for signs of cardiac failure, including shortness of breath, fatigue, or peripheral edema.\n3. Be aware of potential contraindications to certain treatments, such as bleeding disorders or allergies.\n4. Consider the patient's medical history, including previous cardiac events or procedures.\n\n**ABSOLUTE RESTRICTIONS:**\n\nNo specific medication names or doses will be provided. All treatment decisions require physician assessment and evaluation of the patient's individual needs.",
+    "instructions": "EMERGENCY \u2014 Seek immediate medical care.\n\nDO NOT:\n- Drive yourself to hospital\n- Take any medications before physician evaluation\n- Wait to see if symptoms improve\n\nDO:\n- Call emergency services immediately\n- Note the exact time symptoms started\n- Have someone stay with you\n- Bring a list of your current medications\n\nThese instructions are for informational use only.\nAll medical decisions must be made by your treating physician.",
+    "facts": [
+      {
+        "fact_id": 1,
+        "fact": "6-Agent Analysis Session Initiated",
+        "source": "System",
+        "timestamp": "2026-06-14T21:19:04.154960",
+        "confidence": "HIGH",
+        "category": "process"
+      },
+      {
+        "fact_id": 2,
+        "fact": "Emergency keyword detected: chest pain",
+        "source": "Emergency detector",
+        "timestamp": "2026-06-14T21:19:04.155679",
+        "confidence": "HIGH",
+        "category": "safety"
+      },
+      {
+        "fact_id": 3,
+        "fact": "Chest pain",
+        "source": "Symptom entry",
+        "timestamp": "2026-06-14T21:19:04.164382",
+        "confidence": "HIGH",
+        "category": "symptoms"
+      },
+      {
+        "fact_id": 4,
+        "fact": "Left arm radiation",
+        "source": "Symptom entry",
+        "timestamp": "2026-06-14T21:19:04.164479",
+        "confidence": "HIGH",
+        "category": "symptoms"
+      },
+      {
+        "fact_id": 5,
+        "fact": "Diaphoresis",
+        "source": "Symptom entry",
+        "timestamp": "2026-06-14T21:19:04.164603",
+        "confidence": "HIGH",
+        "category": "symptoms"
+      },
+      {
+        "fact_id": 6,
+        "fact": "Nausea/vomiting",
+        "source": "Symptom entry",
+        "timestamp": "2026-06-14T21:19:04.164642",
+        "confidence": "HIGH",
+        "category": "symptoms"
+      },
+      {
+        "fact_id": 7,
+        "fact": "Shortness of breath",
+        "source": "Symptom entry",
+        "timestamp": "2026-06-14T21:19:04.164698",
+        "confidence": "HIGH",
+        "category": "symptoms"
+      },
+      {
+        "fact_id": 8,
+        "fact": "Hypertension",
+        "source": "Medical history field",
+        "timestamp": "2026-06-14T21:19:04.166037",
+        "confidence": "HIGH",
+        "category": "history"
+      },
+      {
+        "fact_id": 9,
+        "fact": "Smoking",
+        "source": "Medical history field",
+        "timestamp": "2026-06-14T21:19:04.166667",
+        "confidence": "HIGH",
+        "category": "history"
+      },
+      {
+        "fact_id": 10,
+        "fact": "Hyperlipidemia",
+        "source": "Medical history field",
+        "timestamp": "2026-06-14T21:19:04.166765",
+        "confidence": "HIGH",
+        "category": "history"
+      },
+      {
+        "fact_id": 11,
+        "fact": "Clinical extraction completed",
+        "source": "Agent 1 \u2014 Extractor",
+        "timestamp": "2026-06-14T21:19:04.715715",
+        "confidence": "HIGH",
+        "category": "process"
+      },
+      {
+        "fact_id": 12,
+        "fact": "BP: 168/102",
+        "source": "Vital signs entry",
+        "timestamp": "2026-06-14T21:19:05.774493",
+        "confidence": "HIGH",
+        "category": "vitals"
+      },
+      {
+        "fact_id": 13,
+        "fact": "HR: 112",
+        "source": "Vital signs entry",
+        "timestamp": "2026-06-14T21:19:05.774505",
+        "confidence": "HIGH",
+        "category": "vitals"
+      },
+      {
+        "fact_id": 14,
+        "fact": "Temperature: 98.6\u00b0F",
+        "source": "Vital signs entry",
+        "timestamp": "2026-06-14T21:19:05.774509",
+        "confidence": "HIGH",
+        "category": "vitals"
+      },
+      {
+        "fact_id": 15,
+        "fact": "O2 Sat: 95",
+        "source": "Vital signs entry",
+        "timestamp": "2026-06-14T21:19:05.774511",
+        "confidence": "HIGH",
+        "category": "vitals"
+      },
+      {
+        "fact_id": 16,
+        "fact": "Reviewer assessment: FAIL",
+        "source": "Agent 6 \u2014 Reviewer",
+        "timestamp": "2026-06-14T21:19:21.854697",
+        "confidence": "HIGH",
+        "category": "safety"
+      },
+      {
+        "fact_id": 17,
+        "fact": "Safety concern: {'issue': 'BP: 168/102 and HR: 112', 'description': \"The patient's elevated blood pressure and heart rate may indicate a high-risk situation. The treatment plan should prioritize stabilizing the patient's vital signs before proceeding with further interventions.\"}",
+        "source": "Agent 6 \u2014 Reviewer",
+        "timestamp": "2026-06-14T21:19:21.854712",
+        "confidence": "HIGH",
+        "category": "safety"
+      }
+    ],
+    "diagnoses": [
+      {
+        "name": "Acute Myocardial Infarction (AMI)",
+        "probability": "60%",
+        "rationale": "The patient's crushing central chest pain radiating to the left arm and jaw, accompanied by diaphoresis, nausea, and shortness of breath, is highly suggestive of an AMI. The patient's history of hypertension, smoking, and hyperlipidemia further increases the risk.",
+        "supporting_fact_ids": [
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "missing_evidence": [
+          "ECG, Troponin levels"
+        ]
+      },
+      {
+        "name": "Angina Pectoris",
+        "probability": "20%",
+        "rationale": "The patient's chest pain and radiation to the left arm could be indicative of angina pectoris, especially given the patient's history of hypertension and hyperlipidemia. However, the severity and duration of the pain are more concerning for an AMI.",
+        "supporting_fact_ids": [
+          3,
+          4,
+          8,
+          10
+        ],
+        "missing_evidence": [
+          "ECG, Stress test"
+        ]
+      },
+      {
+        "name": "Pulmonary Embolism",
+        "probability": "10%",
+        "rationale": "The patient's shortness of breath and chest pain could be indicative of a pulmonary embolism, especially given the patient's history of smoking. However, the absence of other symptoms such as cough or hemoptysis makes this less likely.",
+        "supporting_fact_ids": [
+          7,
+          9
+        ],
+        "missing_evidence": [
+          "CT Pulmonary Angiogram, D-dimer"
+        ]
+      },
+      {
+        "name": "Insufficient Information",
+        "probability": "10%",
+        "rationale": "Given the limited information available, it is difficult to determine a definitive diagnosis. Further testing and evaluation are necessary to rule out other potential causes of the patient's symptoms.",
+        "supporting_fact_ids": [],
+        "missing_evidence": [
+          "ECG, Troponin levels, CT Pulmonary Angiogram, D-dimer"
+        ]
+      }
+    ],
+    "reviewer": {
+      "contradictions": [
+        {
+          "issue": "Physical exam not performed or documented",
+          "description": "A thorough physical exam is crucial in diagnosing and assessing the patient's condition. The lack of documentation may lead to incomplete information and potential misdiagnosis."
+        }
+      ],
+      "missing_evidence": [
+        {
+          "issue": "Labs and imaging results not available",
+          "description": "Lab results and imaging studies are essential in confirming or ruling out the differential diagnoses. The absence of these results may lead to incomplete assessment and treatment."
+        }
+      ],
+      "safety_concerns": [
+        {
+          "issue": "BP: 168/102 and HR: 112",
+          "description": "The patient's elevated blood pressure and heart rate may indicate a high-risk situation. The treatment plan should prioritize stabilizing the patient's vital signs before proceeding with further interventions."
+        }
+      ],
+      "inconsistent_recommendations": [
+        {
+          "issue": "Treatment plan does not include medication administration",
+          "description": "The treatment plan should include administration of medications such as aspirin, nitroglycerin, and beta blockers to manage the patient's symptoms and prevent further complications."
+        }
+      ],
+      "overall_assessment": "FAIL",
+      "reviewer_notes": "The treatment plan lacks essential components, and the assessment is incomplete due to missing evidence. The patient's safety is at risk due to uncontrolled hypertension and tachycardia. A thorough physical exam and lab results are necessary to confirm the diagnosis and develop an effective treatment plan."
+    }
+  },
+  {
     "id": 2,
     "timestamp": "2026-06-14T19:28:59.088479",
     "patient": {
