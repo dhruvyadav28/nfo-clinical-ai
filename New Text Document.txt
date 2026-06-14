@@ -1,0 +1,330 @@
+"""
+clinical_scores.py
+Rule-Based Clinical Scoring Engine
+For physician decision support only.
+"""
+
+import re
+
+
+# ============================================================
+# HELPERS
+# ============================================================
+
+def safe_int(value, default=None):
+    try:
+        return int(str(value).strip())
+    except:
+        return default
+
+
+def get_systolic(bp):
+    try:
+        return int(str(bp).split("/")[0])
+    except:
+        return None
+
+
+def text_contains(text, keywords):
+    text = str(text).lower()
+    return any(k.lower() in text for k in keywords)
+
+
+# ============================================================
+# HEART SCORE (ACS)
+# ============================================================
+
+def heart_score(age, symptoms, history):
+    score = 0
+    reasons = []
+
+    symptoms = str(symptoms).lower()
+    history = str(history).lower()
+
+    # History
+    if any(x in symptoms for x in [
+        "crushing chest pain",
+        "radiates to left arm",
+        "radiates to jaw",
+        "chest pressure"
+    ]):
+        score += 2
+        reasons.append("Highly suspicious ACS history")
+
+    elif "chest pain" in symptoms:
+        score += 1
+        reasons.append("Moderately suspicious chest pain")
+
+    # Age
+    age = safe_int(age)
+
+    if age:
+        if age >= 65:
+            score += 2
+            reasons.append("Age ≥65")
+        elif age >= 45:
+            score += 1
+            reasons.append("Age 45-64")
+
+    # Risk factors
+    risk_count = 0
+
+    risk_terms = [
+        "hypertension",
+        "htn",
+        "diabetes",
+        "t2dm",
+        "smoker",
+        "smoking",
+        "cad",
+        "coronary",
+        "hyperlipidemia"
+    ]
+
+    for term in risk_terms:
+        if term in history:
+            risk_count += 1
+
+    if risk_count >= 3:
+        score += 2
+        reasons.append("Multiple cardiac risk factors")
+    elif risk_count >= 1:
+        score += 1
+        reasons.append("Cardiac risk factors present")
+
+    return {
+        "score": score,
+        "max_score": 10,
+        "category":
+            "High Risk" if score >= 7 else
+            "Moderate Risk" if score >= 4 else
+            "Low Risk",
+        "reasons": reasons
+    }
+
+
+# ============================================================
+# WELLS SCORE (PE)
+# ============================================================
+
+def wells_score(symptoms, history):
+    score = 0
+    reasons = []
+
+    text = f"{symptoms} {history}".lower()
+
+    if "shortness of breath" in text:
+        score += 3
+        reasons.append("Dyspnea")
+
+    if any(x in text for x in [
+        "tachycardia",
+        "heart rate 120",
+        "hr 120",
+        "hr 125"
+    ]):
+        score += 1.5
+        reasons.append("Tachycardia")
+
+    if any(x in text for x in [
+        "long flight",
+        "12-hour flight",
+        "recent travel"
+    ]):
+        score += 1.5
+        reasons.append("Recent prolonged travel")
+
+    if "dvt" in text:
+        score += 3
+        reasons.append("Known DVT")
+
+    category = (
+        "High Probability"
+        if score >= 6
+        else "Moderate Probability"
+        if score >= 2
+        else "Low Probability"
+    )
+
+    return {
+        "score": score,
+        "category": category,
+        "reasons": reasons
+    }
+
+
+# ============================================================
+# qSOFA
+# ============================================================
+
+def qsofa_score(vitals, symptoms):
+    score = 0
+    reasons = []
+
+    bp = vitals.get("bp", "")
+
+    systolic = get_systolic(bp)
+
+    if systolic and systolic <= 100:
+        score += 1
+        reasons.append("SBP ≤100")
+
+    if "confusion" in symptoms.lower():
+        score += 1
+        reasons.append("Altered mental status")
+
+    category = (
+        "High Risk"
+        if score >= 2
+        else "Low Risk"
+    )
+
+    return {
+        "score": score,
+        "max_score": 3,
+        "category": category,
+        "reasons": reasons
+    }
+
+
+# ============================================================
+# FAST STROKE SCREEN
+# ============================================================
+
+def fast_score(symptoms):
+    score = 0
+    reasons = []
+
+    text = symptoms.lower()
+
+    if "facial droop" in text:
+        score += 1
+        reasons.append("Facial droop")
+
+    if "arm weakness" in text:
+        score += 1
+        reasons.append("Arm weakness")
+
+    if "slurred speech" in text:
+        score += 1
+        reasons.append("Speech difficulty")
+
+    category = (
+        "Possible Stroke"
+        if score >= 2
+        else "Low Suspicion"
+    )
+
+    return {
+        "score": score,
+        "max_score": 3,
+        "category": category,
+        "reasons": reasons
+    }
+
+
+# ============================================================
+# NIHSS LITE
+# ============================================================
+
+def nihss_lite(symptoms):
+    score = 0
+    reasons = []
+
+    text = symptoms.lower()
+
+    if "facial droop" in text:
+        score += 1
+        reasons.append("Facial weakness")
+
+    if "arm weakness" in text:
+        score += 2
+        reasons.append("Motor deficit")
+
+    if "leg weakness" in text:
+        score += 2
+        reasons.append("Leg weakness")
+
+    if "slurred speech" in text:
+        score += 2
+        reasons.append("Language deficit")
+
+    if "vision loss" in text:
+        score += 1
+        reasons.append("Visual deficit")
+
+    severity = (
+        "Severe"
+        if score >= 8
+        else "Moderate"
+        if score >= 4
+        else "Mild"
+    )
+
+    return {
+        "score": score,
+        "severity": severity,
+        "reasons": reasons
+    }
+
+
+# ============================================================
+# CHA2DS2-VASc
+# ============================================================
+
+def cha2ds2_vasc(age, history):
+    score = 0
+    reasons = []
+
+    age = safe_int(age)
+    history = history.lower()
+
+    if age:
+        if age >= 75:
+            score += 2
+            reasons.append("Age ≥75")
+        elif age >= 65:
+            score += 1
+            reasons.append("Age 65-74")
+
+    if "hypertension" in history or "htn" in history:
+        score += 1
+        reasons.append("Hypertension")
+
+    if "diabetes" in history:
+        score += 1
+        reasons.append("Diabetes")
+
+    if "stroke" in history or "tia" in history:
+        score += 2
+        reasons.append("Prior stroke/TIA")
+
+    if "heart failure" in history:
+        score += 1
+        reasons.append("Heart failure")
+
+    return {
+        "score": score,
+        "category":
+            "High Stroke Risk"
+            if score >= 4
+            else "Moderate Risk"
+            if score >= 2
+            else "Low Risk",
+        "reasons": reasons
+    }
+
+
+# ============================================================
+# MASTER FUNCTION
+# ============================================================
+
+def calculate_all_scores(age, symptoms, history, vitals):
+    return {
+        "heart": heart_score(age, symptoms, history),
+        "wells": wells_score(symptoms, history),
+        "qsofa": qsofa_score(vitals, symptoms),
+        "fast": fast_score(symptoms),
+        "nihss": nihss_lite(symptoms),
+        "cha2ds2_vasc": cha2ds2_vasc(age, history)
+    }

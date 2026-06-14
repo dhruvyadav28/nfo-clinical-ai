@@ -1,0 +1,244 @@
+[
+  {
+    "id": 2,
+    "timestamp": "2026-06-14T19:28:59.088479",
+    "patient": {
+      "name": "Unknown",
+      "age": "58",
+      "gender": "Male"
+    },
+    "symptoms": "Crushing chest pain\nLeft arm radiation\nSweating\nHTN\nSmoker",
+    "medical_history": "",
+    "vitals": {},
+    "confidence_level": "LOW",
+    "analysis": "Chief complaint: Crushing chest pain, Left arm radiation, Sweating\n\nOnset / duration: Not documented\n\nSeverity: Not documented\n\nAssociated symptoms: Sweating, HTN\n\nRelevant medical history: Not documented\n\nCurrent medications: Not documented\n\nRisk factors: Smoker, HTN",
+    "soap": "S (Subjective):\nThe patient reports crushing chest pain and left arm radiation, accompanied by sweating.\n\nO (Objective):\nVital signs: Not documented\nPhysical exam: Not performed / not documented\nLabs / imaging: Not available\n\nA (Assessment):\n  1. Acute Coronary Syndrome (ACS) (60%)\n  2. Panic Attack (20%)\n  3. Costochondritis (10%)\n  4. Insufficient Information (10%)\n\nP (Plan):\n[PHYSICIAN TO COMPLETE]\nRecommended investigations: ECG, Troponin levels, Chest X-ray.",
+    "treatment": "**IMMEDIATE ACTIONS:**\n\n1. Activate emergency response system immediately to ensure prompt medical attention.\n2. Triage the patient to assess the severity of the condition and prioritize care.\n3. Establish a secure environment for the patient to prevent further injury or complications.\n4. Initiate continuous cardiac and oxygen monitoring to track vital signs.\n5. Establish IV access for potential medication administration and fluid management.\n\n**RECOMMENDED INVESTIGATIONS:**\n\n1. 12-lead ECG to assess cardiac rhythm and identify potential signs of ischemia or infarction.\n2. Troponin levels to confirm or rule out myocardial infarction.\n3. Complete blood count (CBC) to evaluate for signs of infection or inflammation.\n4. Electrolyte panel to assess for potential imbalances.\n5. Chest X-ray to evaluate for signs of pulmonary edema or other complications.\n6. Consider additional investigations based on patient history and clinical presentation.\n\n**SPECIALIST REFERRAL:**\n\n1. Cardiology consultation for further evaluation and management of ACS.\n2. Consider referral to a cardiothoracic surgeon if surgical intervention is necessary.\n\n**MONITORING PARAMETERS:**\n\n1. Cardiac rhythm and rate.\n2. Oxygen saturation levels.\n3. Blood pressure.\n4. Electrolyte levels.\n5. Troponin levels (serially).\n6. Cardiac enzymes (serially).\n7. Patient's level of consciousness and neurological status.\n\n**SAFETY NOTES:**\n\n1. Be cautious of potential red flags, such as:\n\t* Sudden onset of severe chest pain.\n\t* Shortness of breath.\n\t* Confusion or altered mental status.\n\t* Severe hypertension.\n\t* Signs of cardiac arrest.\n2. Consider the patient's medical history, including any pre-existing conditions or allergies.\n\n**ABSOLUTE RESTRICTIONS:**\n\n1. No specific medication administration before physician assessment.\n2. For stroke: Brain imaging required before any pharmacological treatment.\n3. For chest pain: ECG and serial troponin required before any medication administration.\n4. Avoid any actions that may exacerbate the patient's condition or compromise their safety.",
+    "instructions": "\u26a0\ufe0f EMERGENCY \u2014 Seek immediate medical care.\n\nDO NOT:\n- Drive yourself to hospital\n- Take any medications before physician evaluation\n- Wait to see if symptoms improve\n\nDO:\n- Call emergency services immediately\n- Note the exact time symptoms started\n- Have someone stay with you\n- Bring a list of your current medications\n\nThese instructions are for informational use only.\nAll medical decisions must be made by your treating physician.",
+    "facts": [
+      {
+        "fact_id": 1,
+        "fact": "6-Agent Analysis Session Initiated",
+        "source": "System",
+        "timestamp": "2026-06-14T19:28:44.790019",
+        "confidence": "HIGH",
+        "category": "process"
+      },
+      {
+        "fact_id": 2,
+        "fact": "Emergency keyword detected: chest pain",
+        "source": "Emergency detector",
+        "timestamp": "2026-06-14T19:28:44.801348",
+        "confidence": "HIGH",
+        "category": "safety"
+      },
+      {
+        "fact_id": 3,
+        "fact": "Chest pain",
+        "source": "Symptom entry",
+        "timestamp": "2026-06-14T19:28:44.807220",
+        "confidence": "HIGH",
+        "category": "symptoms"
+      },
+      {
+        "fact_id": 4,
+        "fact": "Left arm radiation",
+        "source": "Symptom entry",
+        "timestamp": "2026-06-14T19:28:44.807456",
+        "confidence": "HIGH",
+        "category": "symptoms"
+      },
+      {
+        "fact_id": 5,
+        "fact": "Diaphoresis",
+        "source": "Symptom entry",
+        "timestamp": "2026-06-14T19:28:44.807641",
+        "confidence": "HIGH",
+        "category": "symptoms"
+      },
+      {
+        "fact_id": 6,
+        "fact": "Clinical extraction completed",
+        "source": "Agent 1 \u2014 Extractor",
+        "timestamp": "2026-06-14T19:28:45.265206",
+        "confidence": "HIGH",
+        "category": "process"
+      },
+      {
+        "fact_id": 7,
+        "fact": "Reviewer assessment: FLAG",
+        "source": "Agent 6 \u2014 Reviewer",
+        "timestamp": "2026-06-14T19:28:59.085922",
+        "confidence": "HIGH",
+        "category": "safety"
+      },
+      {
+        "fact_id": 8,
+        "fact": "Safety concern: The emergency response system should be activated immediately, but the plan does not specify the protocol for emergency response. Additionally, the plan does not mention any potential allergies or medications the patient may be taking.",
+        "source": "Agent 6 \u2014 Reviewer",
+        "timestamp": "2026-06-14T19:28:59.085938",
+        "confidence": "HIGH",
+        "category": "safety"
+      }
+    ],
+    "diagnoses": [
+      {
+        "name": "Acute Coronary Syndrome (ACS)",
+        "probability": "60%",
+        "rationale": "The patient's crushing chest pain and left arm radiation are classic symptoms of ACS, and the presence of hypertension and smoking history further increases the risk.",
+        "supporting_fact_ids": [
+          3,
+          4
+        ],
+        "missing_evidence": [
+          "ECG results, troponin levels"
+        ]
+      },
+      {
+        "name": "Panic Attack",
+        "probability": "20%",
+        "rationale": "The patient's diaphoresis and crushing chest pain could be symptoms of a panic attack, especially given the low confidence level and lack of detailed information.",
+        "supporting_fact_ids": [
+          5
+        ],
+        "missing_evidence": [
+          "psychiatric history, mental status examination"
+        ]
+      },
+      {
+        "name": "Costochondritis",
+        "probability": "10%",
+        "rationale": "The patient's chest pain could be due to costochondritis, especially given the lack of radiation to the left arm.",
+        "supporting_fact_ids": [
+          3
+        ],
+        "missing_evidence": [
+          "physical examination of the chest wall, imaging studies"
+        ]
+      },
+      {
+        "name": "Insufficient Information",
+        "probability": "10%",
+        "rationale": "The patient's symptoms are not fully documented, and there is insufficient information to make a definitive diagnosis.",
+        "supporting_fact_ids": [],
+        "missing_evidence": [
+          "detailed description of symptoms, medical history, and current medications"
+        ]
+      }
+    ],
+    "reviewer": {
+      "contradictions": [
+        "Panic Attack and Acute Coronary Syndrome (ACS) may be contradictory, as ACS is a more severe condition that could be triggered by a panic attack, but the symptoms described are more indicative of ACS."
+      ],
+      "missing_evidence": [
+        "Vital signs, Physical exam results, and Lab/imaging results are not documented, which are crucial for accurate diagnosis and treatment planning."
+      ],
+      "safety_concerns": [
+        "The emergency response system should be activated immediately, but the plan does not specify the protocol for emergency response. Additionally, the plan does not mention any potential allergies or medications the patient may be taking."
+      ],
+      "inconsistent_recommendations": [
+        "The top diagnosis is Acute Coronary Syndrome (ACS), but the recommended investigations (ECG, Troponin levels, Chest X-ray) are not specific to ACS and may not be sufficient to rule out other conditions."
+      ],
+      "overall_assessment": "FLAG",
+      "reviewer_notes": "The diagnosis and treatment plan are incomplete and may not accurately reflect the patient's condition. The physician should review the clinical facts and update the diagnosis and plan accordingly. Additionally, the emergency response system should be activated immediately, and the patient's allergies and medications should be considered."
+    }
+  },
+  {
+    "id": 1,
+    "timestamp": "2026-06-13T17:59:56.654725",
+    "patient": {
+      "name": "Unknown",
+      "age": "23",
+      "gender": "Male"
+    },
+    "symptoms": "high fever swetting",
+    "medical_history": "smoking ",
+    "vitals": {},
+    "confidence_level": "LOW",
+    "analysis": "Chief complaint: high fever sweating\n\nOnset / duration: Not documented\n\nSeverity: Not documented\n\nAssociated symptoms: high fever, sweating\n\nRelevant medical history: smoking\n\nCurrent medications: Not documented\n\nRisk factors: Not documented",
+    "soap": "S (Subjective):\nThe patient's chief complaint is high fever and sweating. Associated symptoms include high fever and sweating.\n\nO (Objective):\nVital signs: Not documented\nPhysical exam: Not performed / not documented\nLabs / imaging: Not available\n\nA (Assessment):\n  1. Acute Coronary Syndrome (ACS) (85%)\n  2. Pneumonia (10%)\n  3. Infectious Endocarditis (3%)\n  4. Insufficient information (2%)\n\nP (Plan):\nRecommended investigations: \n[PHYSICIAN TO COMPLETE TREATMENT PLAN]\n\n\u26a0 AI-GENERATED DRAFT \u2014 Physician review and completion required before use.",
+    "treatment": "**PHYSICIAN REVIEW ONLY**\n\n**TOP WORKING DIAGNOSIS: Acute Coronary Syndrome (ACS)**\n\n**CONFIDENCE: LOW**\n\n**IMMEDIATE ACTIONS:**\n\n1. Triage and monitoring steps:\n   - Assess patient's airway, breathing, and circulation (ABCs)\n   - Obtain a 12-lead ECG\n   - Monitor vital signs (blood pressure, heart rate, oxygen saturation)\n   - Assess for signs of cardiac instability or ischemia\n\n**RECOMMENDED INVESTIGATIONS:**\n\n1. Lab tests:\n   - Complete blood count (CBC)\n   - Electrolyte panel (e.g., potassium, magnesium)\n   - Lipid profile\n   - Troponin and creatine kinase (CK) levels\n   - Coagulation studies (e.g., PT, aPTT)\n2. Imaging:\n   - Chest X-ray\n   - Echocardiogram (if indicated)\n3. Other:\n   - Cardiac biomarkers (e.g., troponin, CK-MB)\n\n**SPECIALIST REFERRAL:**\n\n1. Cardiology consultation (urgent)\n\n**MONITORING PARAMETERS:**\n\n1. Vital signs:\n   - Blood pressure\n   - Heart rate\n   - Oxygen saturation\n   - Respiratory rate\n2. Cardiac monitoring:\n   - ECG\n   - Cardiac rhythm\n3. Laboratory values:\n   - Troponin and CK levels\n   - Electrolyte panel\n   - Coagulation studies\n\n**FOLLOW-UP:**\n\n1. Timeframe: Regularly monitor patient's condition and adjust management plan as needed\n2. Next steps:\n   - Continue to assess for signs of cardiac instability or ischemia\n   - Consider further investigations (e.g., coronary angiography) based on patient's clinical presentation and risk factors\n\n**SAFETY NOTES:**\n\n1. Red flags:\n   - Sudden worsening of symptoms\n   - New or worsening chest pain\n   - Shortness of breath\n   - Hypotension or hypertension\n   - Decreased level of consciousness\n2. Deterioration signs:\n   - Increasing troponin levels\n   - Decreasing ejection fraction\n   - Increasing cardiac biomarkers\n\n**ABSOLUTE RESTRICTIONS:**\n\nNone (all treatment decisions require physician assessment)",
+    "instructions": "**Patient Instructions**\n\n**WHAT TO DO:**\n\n* Stay hydrated by drinking plenty of fluids, such as water or clear broths.\n* Rest and try to relax to help your body recover.\n* Avoid strenuous activities and heavy lifting.\n* Follow a healthy diet to help your body fight off any infection.\n\n**WHAT TO WATCH FOR (Warning signs \u2014 seek care immediately if):**\n\n* Severe chest pain or pressure\n* Difficulty breathing or shortness of breath\n* Severe headache or confusion\n* Severe abdominal pain or vomiting blood\n* Fever that does not go away or gets worse\n* Sudden weakness or numbness in your face, arm, or leg\n\n**WHEN TO CALL YOUR DOCTOR:**\n\n* If your symptoms worsen or do not improve\n* If you experience any new or concerning symptoms\n* If you have questions or concerns about your treatment plan\n* If you need to refill your medication\n\n**MEDICATIONS:**\n\n* Follow only what your doctor prescribes. Do not take over-the-counter medications without checking first.\n* Take your medications as directed by your doctor.\n* Do not stop taking your medications without consulting your doctor first.",
+    "facts": [
+      {
+        "fact_id": 1,
+        "fact": "Analysis session initiated",
+        "source": "System",
+        "timestamp": "2026-06-13T17:59:45.139626",
+        "confidence": "HIGH",
+        "category": "process"
+      },
+      {
+        "fact_id": 2,
+        "fact": "Fever",
+        "source": "Symptom entry",
+        "timestamp": "2026-06-13T17:59:45.144032",
+        "confidence": "HIGH",
+        "category": "symptoms"
+      },
+      {
+        "fact_id": 3,
+        "fact": "Smoking",
+        "source": "Medical history field",
+        "timestamp": "2026-06-13T17:59:45.144814",
+        "confidence": "HIGH",
+        "category": "history"
+      },
+      {
+        "fact_id": 4,
+        "fact": "Clinical extraction completed",
+        "source": "Agent 1 \u2014 Extractor",
+        "timestamp": "2026-06-13T17:59:45.543650",
+        "confidence": "HIGH",
+        "category": "process"
+      }
+    ],
+    "diagnoses": [
+      {
+        "name": "Acute Coronary Syndrome (ACS)",
+        "probability": "85%",
+        "rationale": "High fever and sweating can be indicative of ACS, especially in a smoker. ACS is a classic emergency that requires immediate attention.",
+        "supporting_fact_ids": [
+          2,
+          3
+        ],
+        "missing_evidence": [
+          "ECG, troponin levels, cardiac enzymes"
+        ]
+      },
+      {
+        "name": "Pneumonia",
+        "probability": "10%",
+        "rationale": "Fever is a common symptom of pneumonia, but the absence of cough and other respiratory symptoms makes this less likely.",
+        "supporting_fact_ids": [
+          2
+        ],
+        "missing_evidence": [
+          "Chest X-ray, sputum culture"
+        ]
+      },
+      {
+        "name": "Infectious Endocarditis",
+        "probability": "3%",
+        "rationale": "Fever and smoking history could suggest infectious endocarditis, but this is a rare condition and would require further investigation.",
+        "supporting_fact_ids": [
+          2,
+          3
+        ],
+        "missing_evidence": [
+          "Blood cultures, echocardiogram"
+        ]
+      },
+      {
+        "name": "Insufficient information",
+        "probability": "2%",
+        "rationale": "There is not enough information to make a confident diagnosis.",
+        "supporting_fact_ids": [],
+        "missing_evidence": [
+          "More detailed history, physical examination, and diagnostic tests"
+        ]
+      }
+    ],
+    "reviewer": {}
+  }
+]
